@@ -1,0 +1,24 @@
+language: cpp
+dist: trusty
+addons:
+  apt:
+    sources:
+    - sourceline: 'ppa:mhier/libboost-latest'
+    - ubuntu-toolchain-r-test
+    packages:
+    - cmake
+    - lcov
+    - g++-7
+    - boost1.67
+compiler:
+- gcc
+os:
+- linux
+script:
+- export CXX=g++-7
+- export CC=gcc-7
+- mkdir build && cd build
+- cmake .. -DCMAKE_BUILD_TYPE=Debug
+- cmake --build . --target chainiterator_coverage
+- ./test/unit/chainiterator_unit_test
+
