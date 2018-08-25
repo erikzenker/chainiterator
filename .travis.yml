@@ -21,4 +21,3 @@ script:
 - cmake .. -DCMAKE_BUILD_TYPE=Debug
 - cmake --build . --target chainiterator_coverage
 - ./test/unit/chainiterator_unit_test
-
