@@ -1,5 +1,6 @@
 # Chainiterator #
-
+[![Build Status](https://travis-ci.org/erikzenker/chainiterator.svg?branch=master)](https://travis-ci.org/erikzenker/chainiterator)
+=
 
 **Chainiterator** is a C++ class which concats containers to a single iterable object.
 
