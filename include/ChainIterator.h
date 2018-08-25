@@ -107,11 +107,6 @@ class ChainIterator : public boost::iterator_facade<
         return const_cast<typename std::decay<T_Value>::type&>(*value);
     }
 
-    template <class T_Callable> void callOnCurrentIterator(const T_Callable& callable)
-    {
-        const_cast<ChainIterator*>(this)->callOnCurrentIterator(callable);
-    }
-
     template <class T_Callable> void callOnCurrentIterator(const T_Callable& callable) const
     {
         boost::hana::fold_left(
