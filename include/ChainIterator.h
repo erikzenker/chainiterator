@@ -2,7 +2,6 @@
 
 #include <boost/hana.hpp>
 #include <boost/iterator/iterator_facade.hpp>
-#include <boost/variant.hpp>
 
 #include <functional>
 
@@ -18,9 +17,9 @@ class ChainIterator : public boost::iterator_facade<
     ChainIterator(const T_IteratorsTpl& beginTpl)
         : m_iteratorsTpl(beginTpl)
         , m_section(0)
-        , m_maxSection(boost::hana::size(beginTpl))
+        , m_maxSection(boost::hana::minus(
+              boost::hana::size(beginTpl), boost::hana::size(boost::hana::make_tuple(0))))
     {
-        m_maxSection--;
     }
 
     ChainIteratorType& begin()
