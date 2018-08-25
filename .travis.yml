@@ -17,7 +17,9 @@ os:
 script:
 - export CXX=g++-7
 - export CC=gcc-7
+- export CODECOV_TOKEN="5ba39ac9-ca39-4713-9e64-d77f3574f658"
 - mkdir build && cd build
 - cmake .. -DCMAKE_BUILD_TYPE=Debug
 - cmake --build . --target chainiterator_coverage
 - ./test/unit/chainiterator_unit_test
+- bash <(curl -s https://codecov.io/bash) || echo 'Codecov failed to upload'
