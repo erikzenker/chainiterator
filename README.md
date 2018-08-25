@@ -1,8 +1,7 @@
 # Chainiterator #
 
-===========
 
-**Chainiterator** is a C++ class which concats containers to a single iterable container.
+**Chainiterator** is a C++ class which concats containers to a single iterable object.
 
 ## Usage ##
 ```c++
