@@ -11,6 +11,8 @@ struct ChainIteratorTests {
     std::vector<Value> a{0,1,2,3};
     std::vector<Value> b{4,5,6,7};
     std::array<Value, 4> c{8,9,10,11};
+    std::map<int, Value> d{{0,0},{1,1}};
+    std::map<int, Value> e{{2,2},{3,3}};
 };
 
 BOOST_FIXTURE_TEST_CASE(should_construct_chain_iterator, ChainIteratorTests)
@@ -64,6 +66,20 @@ BOOST_FIXTURE_TEST_CASE(should_increment_chain_iterator_in_for_each_loop_with_di
     int i = 0;
     for(auto elem : chainIterator){
         BOOST_REQUIRE_EQUAL(i, elem);
+        i++;
+    }
+}
+
+BOOST_FIXTURE_TEST_CASE(should_increment_chain_iterator_in_for_each_loop_with_map_container, ChainIteratorTests)
+{
+    auto chainIterator = makeChainIterator(d, e);
+
+    int i = 0;
+    for(auto elem : chainIterator){
+        auto key = elem.first;
+        auto value = elem.second;
+        BOOST_REQUIRE_EQUAL(i, value);
+        BOOST_REQUIRE_EQUAL(i, key);
         i++;
     }
 }
